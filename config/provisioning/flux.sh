@@ -6,7 +6,7 @@
 
 # Packages are installed after nodes so we can fix them...
 
-DEFAULT_WORKFLOW="https://raw.githubusercontent.com/ai-dock/comfyui/main/config/workflows/flux-comfyui-example.json"
+DEFAULT_WORKFLOW="https://raw.githubusercontent.com/PhakinMelo99/comfyui/refs/heads/add-node/config/workflows/phakin135.json"
 
 APT_PACKAGES=(
     #"package-1"
@@ -19,10 +19,13 @@ PIP_PACKAGES=(
 )
 
 NODES=(
-    
+    "https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
 )
 
 CHECKPOINT_MODELS=(
+    "https://civitai.com/api/download/models/1052470"
 )
 
 CLIP_MODELS=(
@@ -38,7 +41,7 @@ VAE_MODELS=(
 
 LORA_MODELS=(
     "https://civitai.com/api/download/models/758979"
-    "https://civitai.com/api/download/models/1052470"
+    "https://civitai.com/api/download/models/1043854"
 )
 
 ESRGAN_MODELS=(
@@ -61,9 +64,9 @@ function provisioning_start() {
         CHECKPOINT_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
         VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
     else
-    #    UNET_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
-    #    VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
-    #    sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
+        UNET_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
+        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
+        sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
     fi
 
     provisioning_print_header
