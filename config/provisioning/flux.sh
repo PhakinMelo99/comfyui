@@ -58,12 +58,12 @@ function provisioning_start() {
 
     # Get licensed models if HF_TOKEN set & valid
     if provisioning_has_valid_hf_token; then
-        UNET_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
+        CHECKPOINT_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
         VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors")
     else
-        UNET_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
-        VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
-        sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
+    #    UNET_MODELS+=("https://huggingface.co/datasets/John6666/flux1-backup-202411/acornIsSpinningFLUX_aisf11H8stpChinfx.safetensors")
+    #    VAE_MODELS+=("https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors")
+    #    sed -i 's/flux1-dev\.safetensors/flux1-schnell.safetensors/g' /opt/ComfyUI/web/scripts/defaultGraph.js
     fi
 
     provisioning_print_header
